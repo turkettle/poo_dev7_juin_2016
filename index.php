@@ -1,9 +1,10 @@
 <?php
 
-  require_once 'base/ContentEntityInterface.php';
-  require_once 'base/Entity.php';
-  require_once 'base/UserManager.php';
-  require_once 'base/UserEntity.php';
+  require_once 'core/Autoloader.php';
+
+  Autoloader::register();
+
+  use \core;
 
   $_POST = [
     'name' => 'JP',
@@ -13,4 +14,5 @@
     'age' => '25',
   ];
 
-  $user = UserEntity::create($_POST)->save();
+  $user = new UserEntity;
+  // $user = UserEntity::create($_POST)->save();

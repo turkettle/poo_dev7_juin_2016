@@ -13,13 +13,13 @@ abstract class Entity implements ContentEntityInterface
    *
    * @access public
    */
-  public $create;
+  public $created;
 
   /**
    *
    * @access public
    */
-  public $update;
+  public $updated;
 
   /**
    * Permet d'hydrate des objets d'entités.
