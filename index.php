@@ -1,10 +1,10 @@
 <?php
 
   require_once 'core/Autoloader.php';
+  use \Core\Autoloader;
 
   Autoloader::register();
 
-  use \core;
 
   $_POST = [
     'name' => 'JP',
