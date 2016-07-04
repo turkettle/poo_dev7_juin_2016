@@ -1,6 +1,6 @@
 <?php
 
-namespace core;
+namespace core\entity;
 
 abstract class EntityManager {
 

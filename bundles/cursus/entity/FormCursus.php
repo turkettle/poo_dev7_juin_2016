@@ -1,9 +1,10 @@
 <?php
 
+namespace bundles\cursus\entity;
 
 /**
  * class FormCursus
- * 
+ *
  */
 class FormCursus
 {
@@ -15,19 +16,19 @@ class FormCursus
    /*** Attributes: ***/
 
   /**
-   * 
+   *
    * @access public
    */
   public $title;
 
   /**
-   * 
+   *
    * @access public
    */
   public $duration;
 
   /**
-   * 
+   *
    * @access public
    */
   public $type;

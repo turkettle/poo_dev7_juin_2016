@@ -1,6 +1,8 @@
 <?php
 
-namespace core;
+namespace core\entity;
+
+use \core\interfaces\ContentEntityInterface;
 
 /**
  * class Entity

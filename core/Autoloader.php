@@ -5,7 +5,7 @@ namespace  core;
 class Autoloader {
 
   static public function register() {
-    
+
 
     $callback = array(
       __CLASS__,

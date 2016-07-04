@@ -1,5 +1,6 @@
 <?php
 
+namespace bundles\user\form;
 
 /**
  * class FormLogin

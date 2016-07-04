@@ -1,9 +1,10 @@
 <?php
 
+namespace bundles\cursus\entity;
 
 /**
  * class Cursus
- * 
+ *
  */
 class Cursus
 {
@@ -15,44 +16,44 @@ class Cursus
    /*** Attributes: ***/
 
   /**
-   * 
+   *
    * @access public
    */
   public $id;
 
   /**
-   * 
+   *
    * @access public
    */
   public $title;
 
   /**
-   * 
+   *
    * @access public
    */
   public $duration;
 
   /**
-   * 
+   *
    * @access public
    */
   public $program;
 
   /**
-   * 
+   *
    * @access public
    */
   public $price;
 
   /**
-   * 
+   *
    * @access public
    */
   public $type;
 
 
   /**
-   * 
+   *
    *
    * @param  options Paramètre optionnel à la création d'un objet Cursus correspondant aux attributs
 de l'objet.
@@ -64,7 +65,7 @@ de l'objet.
   } // end of member function create
 
   /**
-   * 
+   *
    *
    * @return void
    * @access public
@@ -73,7 +74,7 @@ de l'objet.
   } // end of member function delete
 
   /**
-   * 
+   *
    *
    * @return void
    * @access public
@@ -82,9 +83,9 @@ de l'objet.
   } // end of member function save
 
   /**
-   * 
    *
-   * @param int id 
+   *
+   * @param int id
 
    * @return void
    * @access public
