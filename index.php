@@ -1,10 +1,7 @@
 <?php
 
-  require_once 'core/Autoloader.php';
+  require_once 'core/autoload.php';
 
-  Autoloader::register();
-
-  use \core;
 
   $_POST = [
     'name' => 'JP',
@@ -14,5 +11,6 @@
     'age' => '25',
   ];
 
-  $user = new UserEntity;
+  use \bundles\user\UserEntity;
+  $user = new UserEntity();
   // $user = UserEntity::create($_POST)->save();

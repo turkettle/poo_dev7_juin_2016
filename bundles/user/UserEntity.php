@@ -1,12 +1,12 @@
 <?php
 
-  namespace Bundle\User;
+  namespace bundles\user;
 
 /**
  * class User
  *
  */
-class UserEntity
+class UserEntity extends Entity
 {
 
   /** Aggregations: */
