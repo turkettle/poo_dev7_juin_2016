@@ -4,13 +4,17 @@ namespace core\entity;
 
 abstract class EntityManager {
 
-  private $_db;
+  protected $db;
   protected $table;
 
-  final public function __construct($db) {
+  public function injectDb($db) {
 
-    $this->_db = $db;
-    $this->table = lcfirst(str_replace('Manager', '', get_called_class()));
+    $this->db = $db;
+  }
+
+  public function setTable($table) {
+
+    $this->table = $table;
   }
 
   public function flush(ContentEntityInterface $entity) {
@@ -42,8 +46,18 @@ abstract class EntityManager {
     }
   }
 
-  static public getEntity($entity_id) {
-    
+  public function getEntity($entity_id) {
+
+    if ((int) $entity_id > 0) {
+
+      $query_string = "SELECT * FROM {$this->table} WHERE id=:id";
+      $query = $this->db->prepare($query_string);
+      $query->bindValue(':id', $entity_id);
+      $query->execute();
+      $result = $query->fetch(\PDO::FETCH_ASSOC);
+
+      return $result;
+    }
   }
 
 

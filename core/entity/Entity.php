@@ -3,6 +3,7 @@
 namespace core\entity;
 
 use \core\interfaces\ContentEntityInterface;
+use  core\entity\EntityManager;
 
 /**
  * class Entity
@@ -11,6 +12,7 @@ use \core\interfaces\ContentEntityInterface;
 abstract class Entity implements ContentEntityInterface
 {
 
+  protected $getManager;
 
   /**
    *
@@ -23,6 +25,12 @@ abstract class Entity implements ContentEntityInterface
    * @access public
    */
   public $updated;
+
+  public function injectManager(EntityManager $manager) {
+
+    $this->getManager = $manager;
+  }
+
 
   /**
    * Permet d'hydrate des objets d'entités.
@@ -72,13 +80,13 @@ abstract class Entity implements ContentEntityInterface
    */
   public function save() {
 
-    $db = new PDO('mysql:host=localhost;dbname=aston', 'root', 'paris');
-    $entity_class = get_class($this);   //  => UserEntity
-    $class = str_replace('Entity', 'Manager', $entity_class);   //  => UserManager
-    $manager = new $class($db);   //  => new UserManager($db)
-    $manager->flush($this);
 
-    return $this;
+    // $entity_class = get_class($this);   //  => UserEntity
+    // $class = str_replace('Entity', 'Manager', $entity_class);   //  => UserManager
+    // $manager = new $class($db);   //  => new UserManager($db)
+    // $manager->flush($this);
+    //
+    // return $this;
   } // end of member function save
 
   /**
@@ -89,10 +97,8 @@ abstract class Entity implements ContentEntityInterface
    */
   public function load($entity_id) {
 
-    print '<pre>$entity_id => <br />';
-    print_r($entity_id);
-    print "</pre>";
-    print '<code><em>From class ' . __CLASS__ . ' in function ' . __FUNCTION__ . '() line ' . __LINE__ . ' in file ' . __FILE__ . '</em>.</code>';
+    $entity_raw = $this->getManager->getEntity($entity_id);
+    return self::create($entity_raw);
   } // end of member function load
 
 
