@@ -1,5 +1,7 @@
 <?php
 
+namespace bundles\user\controller;
+
 /**
  *
  */
@@ -7,8 +9,8 @@ class UserController {
 
   public function viewAction($uid) {
 
+    // ?app=user  &action=view  &uid=1
 
-    // use \bundles\user\UserEntity;
-    // $user = UserEntity::load(1);
+    $user = UserEntity::load($uid);
   }
 }

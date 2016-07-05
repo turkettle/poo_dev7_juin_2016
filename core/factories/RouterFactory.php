@@ -2,8 +2,6 @@
 
 namespace core\factories;
 
-use \bundles\user\controller\UserRouter;
-
   /**
    *
    */

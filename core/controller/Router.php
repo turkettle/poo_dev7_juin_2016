@@ -49,4 +49,12 @@ Abstract class Router {
   public function getParam($param) {
     return $this->params[$param];
   }
+
+  /*    METHODS   */
+
+  public function getController() {
+
+    $controller = '\bundles\\' . $this->app . '\controller\\' . ucfirst($this->app) . 'Controller';
+    return new $controller;
+  }
 }
