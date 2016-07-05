@@ -2,6 +2,8 @@
 
 namespace core\controller;
 
+use core\factories\ControllerFactory;
+
 /**
  *
  */
@@ -52,9 +54,13 @@ Abstract class Router {
 
   /*    METHODS   */
 
-  public function getController() {
+  public function getController($type) {
 
-    $controller = '\bundles\\' . $this->app . '\controller\\' . ucfirst($this->app) . 'Controller';
-    return new $controller;
+    return ControllerFactory::get($type);
   }
+
+
+
+
+
 }

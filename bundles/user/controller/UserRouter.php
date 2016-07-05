@@ -18,7 +18,7 @@ class UserRouter extends Router
 
       case 'view':
 
-        $controller = $this->getController();
+        $controller = $this->getController('user');
         $controller->viewAction($this->getParam('uid'));
         break;
 

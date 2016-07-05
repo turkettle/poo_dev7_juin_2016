@@ -1,6 +1,8 @@
 <?php
 
-  namespace bundles\user\entity;
+namespace bundles\user\entity;
+
+use core\entity\Entity;
 
 /**
  * class User

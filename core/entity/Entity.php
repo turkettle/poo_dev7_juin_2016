@@ -87,7 +87,12 @@ abstract class Entity implements ContentEntityInterface
    * @return void
    * @access public
    */
-  public function load() {
+  public function load($entity_id) {
+
+    print '<pre>$entity_id => <br />';
+    print_r($entity_id);
+    print "</pre>";
+    print '<code><em>From class ' . __CLASS__ . ' in function ' . __FUNCTION__ . '() line ' . __LINE__ . ' in file ' . __FILE__ . '</em>.</code>';
   } // end of member function load
 
 

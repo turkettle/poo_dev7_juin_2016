@@ -7,42 +7,44 @@ abstract class EntityManager {
   private $_db;
   protected $table;
 
-    final public function __construct($db) {
+  final public function __construct($db) {
 
-      $this->_db = $db;
-      $this->table = lcfirst(str_replace('Manager', '', get_called_class()));
+    $this->_db = $db;
+    $this->table = lcfirst(str_replace('Manager', '', get_called_class()));
+  }
+
+  public function flush(ContentEntityInterface $entity) {
+
+    if ($entity->id) {
+      // UPDATE
     }
+    else {
 
-    public function flush(ContentEntityInterface $entity) {
+      $query_string = 'INSERT INTO {$this->table} (';
+      $properties = [];
 
-      if ($entity->id) {
-        // UPDATE
+      foreach ($entity as $key => $value) {
+        $properties[] = $value;
       }
-      else {
 
-        $query_string = 'INSERT INTO {$this->table} (';
-        $properties = [];
+      $query_string .= implode(', ', $properties) . ') VALUES (';
 
-        foreach ($entity as $key => $value) {
-          $properties[] = $value;
-        }
-
-        $query_string .= implode(', ', $properties) . ') VALUES (';
-
-        // $query = $this->_db->prepare('
-        //   INSERT
-        //   INTO user (name, email, localisation, age, `create`, `update`)
-        //   VALUES (:name, :email, :localisation, :age, NOW(), NOW())');
-        //
-        // $query->bindParam(':name', $user->name);
-        // $query->bindParam(':email', $user->email);
-        // $query->bindParam(':localisation', $user->localisation);
-        // $query->bindParam(':age', $user->age);
-        // $query->execute();
-      }
+      // $query = $this->_db->prepare('
+      //   INSERT
+      //   INTO user (name, email, localisation, age, `create`, `update`)
+      //   VALUES (:name, :email, :localisation, :age, NOW(), NOW())');
+      //
+      // $query->bindParam(':name', $user->name);
+      // $query->bindParam(':email', $user->email);
+      // $query->bindParam(':localisation', $user->localisation);
+      // $query->bindParam(':age', $user->age);
+      // $query->execute();
     }
+  }
 
-
+  static public getEntity($entity_id) {
+    
+  }
 
 
 
