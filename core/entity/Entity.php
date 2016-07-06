@@ -12,7 +12,7 @@ use  core\entity\EntityManager;
 abstract class Entity implements ContentEntityInterface
 {
 
-  protected $getManager;
+  protected $manager;
 
   /**
    *
@@ -28,7 +28,12 @@ abstract class Entity implements ContentEntityInterface
 
   public function injectManager(EntityManager $manager) {
 
-    $this->getManager = $manager;
+    $this->manager = $manager;
+  }
+
+  public function getManager() {
+
+    return $this->manager;
   }
 
 
@@ -97,7 +102,7 @@ abstract class Entity implements ContentEntityInterface
    */
   public function load($entity_id) {
 
-    $entity_raw = $this->getManager->getEntity($entity_id);
+    $entity_raw = $this->getManager()->getEntity($entity_id);
     return self::create($entity_raw);
   } // end of member function load
 

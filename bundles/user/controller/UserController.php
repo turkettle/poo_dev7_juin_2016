@@ -14,7 +14,7 @@ class UserController extends Controller {
     $user_entity = $this->service->get('user');
     $user = $user_entity->load($uid);
 
-    return $this->render('user.html.php', array('user' => $user));
+    return $this->render('bundles/user/views/user.html.php', array('user' => $user));
   }
 
 
